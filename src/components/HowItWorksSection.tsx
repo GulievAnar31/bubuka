@@ -45,7 +45,7 @@ export default function HowItWorksSection() {
 
                 {/* Steps */}
                 <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-8">
-                    {steps.map((step, index) => {
+                    {steps?.map((step, index) => {
                         const IconComponent = step.icon;
                         const isLast = index === steps.length - 1;
 
@@ -78,7 +78,7 @@ export default function HowItWorksSection() {
 
                                         {/* Детали */}
                                         <div className="space-y-2">
-                                            {details.map((detail, detailIndex) => (
+                                            {details?.map((detail, detailIndex) => (
                                                 <div
                                                     key={detailIndex}
                                                     className="flex items-center justify-center space-x-2 text-sm text-gray-500"

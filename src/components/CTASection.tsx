@@ -62,7 +62,7 @@ export default function CTASection() {
                             title: t("cta.feature.growth.title"),
                             description: t("cta.feature.growth.desc"),
                         },
-                    ].map((feature, i) => {
+                    ]?.map((feature, i) => {
                         const Icon = feature.icon;
                         return (
                             <Card

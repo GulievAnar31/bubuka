@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
 
                 {/* Organizer Logos */}
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-                    {organizerLogos.map((org, index) => (
+                    {organizerLogos?.map((org, index) => (
                         <Card
                             key={index}
                             className="group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 bg-white border-0"

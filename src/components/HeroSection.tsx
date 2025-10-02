@@ -150,7 +150,7 @@ export default function HeroSection() {
                         </div>
 
                         <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                            {heroImages.map((_, index) => (
+                            {heroImages?.map((_, index) => (
                                 <div
                                     key={index}
                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-blue-600' : 'bg-gray-300'
