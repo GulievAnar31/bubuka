@@ -95,12 +95,12 @@
         },
         "contact": {
             "title": "Contacts",
-            "email": "support@eventflow.com",
-            "phone": "8-800-EVENTFLOW",
+            "email": "support@OnVibe.com",
+            "phone": "8-800-OnVibe",
             "address": "Moscow, Russia"
         },
         "bottom": {
-            "rights": "© 2024 EventFlow. All rights reserved.",
+            "rights": "© 2024 OnVibe. All rights reserved.",
             "privacy": "Privacy Policy",
             "terms": "Terms of Use",
             "cookies": "Cookies Policy",
@@ -108,7 +108,7 @@
         }
     },
     "header": {
-        "logo": "EventFlow",
+        "logo": "OnVibe",
         "nav": {
             "features": "Features",
             "howItWorks": "How it works",
