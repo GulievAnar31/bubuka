@@ -1,31 +1,58 @@
 import { Button } from '@/components/ui/button';
 import { Play, Star, Users, Calendar } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+type HeroImage = {
+    title: string;
+    /** Градиент в формате tailwind, например: 'from-blue-500 to-purple-600' */
+    gradient?: string;
+    /** Эмодзи-фолбэк, если нет изображения */
+    icon?: string;
+    /** Ниже поля можно не заполнять, они нам больше не нужны визуально, но тип оставим на будущее */
+    sold?: string;
+    progress?: number;
+    revenue?: string;
+    growth?: string;
+    /** Путь к картинке из /public, напр. '/images/festival.jpg' */
+    image?: string;
+};
 
 export default function HeroSection() {
     const { t } = useTranslation();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    const heroImages = t('hero.carousel', { returnObjects: true }) as Array<any>;
+    // Безопасно получаем массив слайдов из i18next
+    const heroImages = useMemo<HeroImage[]>(() => {
+        const raw = t('hero.carousel', { returnObjects: true }) as unknown;
+        return Array.isArray(raw) ? (raw as HeroImage[]) : [];
+    }, [t]);
+
+    // Фолбэк слайд на случай пустого JSON
+    const fallback: HeroImage = {
+        title: t('hero.card.fallbackTitle', { defaultValue: 'Мероприятие' }),
+        gradient: 'from-blue-500 to-purple-600',
+        icon: '🎟️',
+    };
+
+    // Источник данных для слайдера — либо реальные данные, либо один фолбэк
+    const slides: HeroImage[] = heroImages.length > 0 ? heroImages : [fallback];
 
     useEffect(() => {
+        if (slides.length <= 1) return; // не крутим, если один слайд
         const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % heroImages.length
-            );
+            setCurrentImageIndex((prev) => (prev + 1) % slides.length);
         }, 3000);
-
         return () => clearInterval(interval);
-    }, [heroImages.length]);
+    }, [slides.length]);
 
-    const currentImage = heroImages[currentImageIndex];
+    const currentImage = slides[currentImageIndex];
 
     return (
         <section className="pt-20 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Column - Content */}
+                    {/* Левая колонка — контент */}
                     <div className="space-y-8">
                         <div className="space-y-4">
                             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
@@ -63,7 +90,7 @@ export default function HeroSection() {
                             </Button>
                         </div>
 
-                        {/* Stats */}
+                        {/* Статистика */}
                         <div className="flex flex-wrap gap-8 pt-8">
                             <div className="flex items-center space-x-2">
                                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -95,69 +122,42 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right Column - Animated Visual */}
+                    {/* Правая колонка — ТОЛЬКО изображение/градиент на всю карточку */}
                     <div className="relative">
                         <div className="relative z-10">
-                            <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-all duration-500">
-                                <div className="space-y-4">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="text-lg font-semibold text-gray-900">
-                                            {currentImage.title}
-                                        </h3>
-                                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                                            {t('hero.card.live')}
-                                        </span>
-                                    </div>
-
+                            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-all duration-500">
+                                {currentImage.image ? (
+                                    <img
+                                        src={currentImage.image}
+                                        alt={currentImage.title}
+                                        className="w-full h-64 md:h-96 object-cover"
+                                        loading="eager"
+                                    />
+                                ) : (
                                     <div
-                                        className={`h-32 bg-gradient-to-r ${currentImage.gradient} rounded-lg flex items-center justify-center transition-all duration-500`}
+                                        className={`w-full h-64 md:h-96 bg-gradient-to-r ${currentImage.gradient ?? 'from-blue-500 to-purple-600'
+                                            } flex items-center justify-center`}
                                     >
-                                        <div className="text-white text-center">
-                                            <div className="text-2xl font-bold">
-                                                {currentImage.icon}
-                                            </div>
-                                            <div className="text-sm">{t('hero.card.preview')}</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <div className="flex justify-between text-sm">
-                                            <span className="text-gray-600">
-                                                {t('hero.card.sold')}
-                                            </span>
-                                            <span className="font-semibold">
-                                                {currentImage.sold}
-                                            </span>
-                                        </div>
-                                        <div className="w-full bg-gray-200 rounded-full h-2">
-                                            <div
-                                                className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-500"
-                                                style={{ width: `${currentImage.progress}%` }}
-                                            ></div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex justify-between items-center pt-2">
-                                        <span className="text-2xl font-bold text-gray-900">
-                                            {currentImage.revenue}
-                                        </span>
-                                        <span className="text-green-600 text-sm font-medium">
-                                            {currentImage.growth}
+                                        <span className="text-5xl">
+                                            {currentImage.icon ?? '🎟️'}
                                         </span>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </div>
 
-                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                            {heroImages?.map((_, index) => (
-                                <div
-                                    key={index}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-blue-600' : 'bg-gray-300'
-                                        }`}
-                                />
-                            ))}
-                        </div>
+                        {/* Точки-переключатели */}
+                        {slides.length > 1 && (
+                            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+                                {slides.map((_, index) => (
+                                    <div
+                                        key={index}
+                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-blue-600' : 'bg-gray-300'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

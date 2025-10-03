@@ -1,239 +1,241 @@
 {
     "cta": {
-        "badge": "Присоединяйтесь к 50 000+ успешным организаторам мероприятий",
-        "title": "Готовы преобразить ваш {{what}}?",
-        "title_highlight": "опыт мероприятий",
-        "subtitle": "Не упустите ещё одну возможность провести незабываемое мероприятие.",
+        "badge": "Join Kazakhstan’s fast-growing entertainment ecosystem",
+        "title": "Ready to discover {{what}}?",
+        "title_highlight": "a new event experience",
+        "subtitle": "Create unforgettable events and find entertainment you’ll love.",
         "button": {
-            "primary": "Создать бесплатный аккаунт",
-            "secondary": "Запланировать демо"
+            "primary": "Apply to join",
+            "secondary": "Schedule a demo"
         },
         "feature": {
             "fast": {
-                "title": "Быстрая настройка",
-                "desc": "Запуск за минуты"
+                "title": "Fast start",
+                "desc": "Create and publish your events"
             },
             "payments": {
-                "title": "Безопасные платежи",
-                "desc": "Банковский уровень защиты"
+                "title": "Secure payments",
+                "desc": "Reliable data protection"
             },
             "support": {
-                "title": "Поддержка 24/7",
-                "desc": "Всегда готовы помочь"
+                "title": "Support",
+                "desc": "Always ready to help"
             },
             "growth": {
-                "title": "Увеличьте доходы",
-                "desc": "Максимизируйте продажи билетов"
+                "title": "Increase revenue",
+                "desc": "Maximize ticket sales"
             }
         }
     },
     "features": {
-        "title": "Все что нужно для {{what}}",
-        "highlight": "успеха",
-        "subtitle": "От продажи билетов до аналитики мероприятий, EventFlow предоставляет все инструменты, которые нужны профессиональным организаторам мероприятий на одной мощной платформе.",
+        "title": "Everything to build {{what}}",
+        "highlight": "your event",
+        "subtitle": "From ticketing to analytics, OnVibe provides all the tools professional organizers need on one platform.",
         "items": {
             "tickets": {
-                "title": "Простая продажа билетов",
-                "desc": "Принимайте платежи мгновенно с безопасной оплатой. Поддержка банковских карт, PayPal и других способов оплаты."
+                "title": "Simple ticket sales",
+                "desc": "Supports bank cards, Apple Pay / Google Pay."
             },
             "marketing": {
-                "title": "Мощные маркетинговые инструменты",
-                "desc": "Продвигайте мероприятия с помощью встроенного email-маркетинга, интеграции с соцсетями и настраиваемых страниц."
+                "title": "End-to-end analytics",
+                "desc": "Connect Google Analytics, Meta Pixel, and other tools for deep insights and ad optimization."
             },
             "analytics": {
-                "title": "Аналитика в реальном времени",
-                "desc": "Отслеживайте продажи билетов, демографию участников и доходы в реальном времени с подробными дашбордами."
+                "title": "Sales analytics",
+                "desc": "Track ticket sales and revenue in real time. Understand how your event is performing."
             },
             "management": {
-                "title": "Полное управление мероприятиями",
-                "desc": "Управляйте всеми аспектами вашего мероприятия от регистрации до регистрации на входе с нашей универсальной платформой."
+                "title": "Complete event management",
+                "desc": "Manage every aspect—from publishing to ticket validation at the door—on our all-in-one platform."
             },
             "security": {
-                "title": "Безопасность и надежность",
-                "desc": "Банковский уровень безопасности с гарантией работоспособности 99.9%. Ваши данные и платежи всегда защищены."
+                "title": "Organizer public page",
+                "desc": "Create a profile with your events and followers. Grow your community and strengthen brand awareness."
             },
             "mobile": {
-                "title": "Мобильный опыт",
-                "desc": "Оптимизировано для мобильных устройств. Управляйте мероприятиями на ходу и обеспечивайте удобную мобильную продажу билетов."
+                "title": "Mobile experience",
+                "desc": "Optimized for mobile. View analytics and validate tickets on site."
             },
             "participants": {
-                "title": "Управление участниками",
-                "desc": "Простой процесс регистрации, инструменты связи с участниками и детальное отслеживание посетителей."
+                "title": "Personalized recommendations",
+                "desc": "Your events reach the people who truly care. Smart algorithms help you find your target audience."
             },
             "multiEvents": {
-                "title": "Поддержка множественных мероприятий",
-                "desc": "Управляйте несколькими мероприятиями одновременно с интуитивной панелью управления и инструментами планирования."
+                "title": "Entertainment ecosystem",
+                "desc": "Become part of a growing community. OnVibe unites organizers and seekers of vivid experiences in one space."
             }
         }
     },
     "footer": {
         "company": {
-            "name": "EventFlow",
-            "description": "Предоставляем организаторам мероприятий по всему миру инструменты, необходимые для создания незабываемых впечатлений и построения процветающих сообществ."
+            "name": "OnVibe",
+            "description": "An entertainment ecosystem that helps organizers create vibrant events and visitors find what truly inspires them."
         },
         "product": {
-            "title": "Продукт",
+            "title": "Product",
             "links": {
-                "features": "Возможности",
-                "pricing": "Тарифы",
-                "templates": "Шаблоны",
-                "integrations": "Интеграции",
-                "mobileApp": "Мобильное приложение",
+                "features": "Features",
+                "pricing": "Pricing",
+                "templates": "Templates",
+                "integrations": "Integrations",
+                "mobileApp": "Mobile app",
                 "api": "API"
             }
         },
         "resources": {
-            "title": "Ресурсы",
+            "title": "Resources",
             "links": {
-                "helpCenter": "Центр помощи",
-                "guide": "Руководство по планированию мероприятий",
-                "blog": "Блог",
-                "webinars": "Вебинары",
-                "cases": "Кейсы",
-                "community": "Сообщество"
+                "helpCenter": "Help Center",
+                "guide": "Event planning guide",
+                "blog": "Blog",
+                "webinars": "Webinars",
+                "cases": "Case studies",
+                "community": "Community"
             }
         },
         "contact": {
-            "title": "Контакты",
+            "title": "Contacts",
             "email": "support@eventflow.com",
             "phone": "8-800-EVENTFLOW",
-            "address": "Москва, Россия"
+            "address": "Moscow, Russia"
         },
         "bottom": {
-            "rights": "© 2024 EventFlow. Все права защищены.",
-            "privacy": "Политика конфиденциальности",
-            "terms": "Условия использования",
-            "cookies": "Политика cookies",
-            "madeWithLove": "Создано с ❤️ для организаторов мероприятий"
+            "rights": "© 2024 EventFlow. All rights reserved.",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Use",
+            "cookies": "Cookies Policy",
+            "madeWithLove": "Made with ❤️ for event organizers"
         }
     },
     "header": {
         "logo": "EventFlow",
         "nav": {
-            "features": "Возможности",
-            "howItWorks": "Как это работает",
-            "testimonials": "Клиенты",
-            "pricing": "Тарифы",
-            "contacts": "Контакты"
+            "features": "Features",
+            "howItWorks": "How it works",
+            "testimonials": "Clients",
+            "pricing": "Pricing",
+            "contacts": "Contacts"
         },
         "auth": {
-            "login": "Войти",
-            "register": "Регистрация бесплатно"
+            "login": "Log in",
+            "register": "Sign up for free"
         }
     },
     "hero": {
-        "badge": "Доверяют 50,000+ организаторов мероприятий",
-        "title": "Организуйте ваше следующее мероприятие",
-        "title_highlight": "легко",
-        "subtitle": "Создавайте, продвигайте и управляйте незабываемыми мероприятиями. От интимных мастер-классов до масштабных конференций, EventFlow предоставляет все инструменты для объединения людей.",
+        "badge": "Next-generation entertainment ecosystem",
+        "title": "Create events",
+        "title_highlight": "with ease",
+        "subtitle": "A convenient ecosystem where organizers craft unforgettable events and everyone finds what they love thanks to personalized recommendations.",
         "buttons": {
-            "primary": "Начните продавать билеты сегодня",
-            "secondary": "Смотреть демо"
+            "primary": "Start selling tickets today",
+            "secondary": "Watch demo"
         },
         "stats": {
             "tickets": {
-                "number": "2М+",
-                "label": "Билетов продано"
+                "number": "2M+",
+                "label": "Tickets sold"
             },
             "events": {
-                "number": "15К+",
-                "label": "Мероприятий создано"
+                "number": "15K+",
+                "label": "Events created"
             }
         },
         "card": {
-            "live": "В эфире",
-            "preview": "Предпросмотр мероприятия",
-            "sold": "Билетов продано"
+            "live": "Live",
+            "preview": "Event preview",
+            "sold": "Tickets sold"
         },
         "carousel": [
             {
-                "title": "Летний музыкальный фестиваль",
+                "title": "Summer Music Festival",
                 "gradient": "from-orange-400 to-pink-500",
                 "icon": "🎵",
                 "sold": "847 / 1000",
                 "progress": 84.7,
                 "revenue": "18,150,000 ₸",
-                "growth": "+12% сегодня"
+                "growth": "+12% today",
+                "image": "images/1.jpeg"
             },
             {
-                "title": "Технологическая конференция",
+                "title": "Tech Conference",
                 "gradient": "from-blue-500 to-purple-600",
                 "icon": "💻",
                 "sold": "1,234 / 1,500",
                 "progress": 82.3,
                 "revenue": "26,428,500 ₸",
-                "growth": "+8% сегодня"
+                "growth": "+8% today",
+                "image": "images/2.jpg"
             },
             {
-                "title": "Кулинарный мастер-класс",
+                "title": "Culinary Masterclass",
                 "gradient": "from-green-400 to-blue-500",
                 "icon": "👨‍🍳",
                 "sold": "45 / 50",
                 "progress": 90,
                 "revenue": "963,750 ₸",
-                "growth": "+15% сегодня"
+                "growth": "+15% today",
+                "image": "images/3.png"
             },
             {
-                "title": "Корпоративный семинар",
+                "title": "Corporate Seminar",
                 "gradient": "from-purple-500 to-indigo-600",
                 "icon": "🏢",
                 "sold": "156 / 200",
                 "progress": 78,
                 "revenue": "6,682,000 ₸",
-                "growth": "+5% сегодня"
+                "growth": "+5% today",
+                "image": "images/4.png"
             }
         ]
     },
     "howItWorks": {
-        "title": "Начните работу за",
-        "titleHighlight": "4 простых шага",
-        "subtitle": "От регистрации до первой продажи билетов, EventFlow делает создание мероприятий простым и понятным. Вы будете готовы к работе за считанные минуты.",
+        "title": "Get started in",
+        "titleHighlight": "3 simple steps",
+        "subtitle": "From sign-up to your first ticket sale — creating events on OnVibe is simple and clear.",
         "steps": [
             {
                 "step": 1,
-                "title": "Регистрация и настройка",
-                "description": "Создайте бесплатный аккаунт менее чем за 2 минуты. Кредитная карта не требуется для начала работы.",
+                "title": "Register",
+                "description": "Submit an application and our managers will contact you",
                 "details": [
-                    "Быстрая регистрация",
-                    "Подтверждение email",
-                    "Настройка профиля"
+                    "Quick registration",
+                    "Create a profile and a public organizer page"
                 ]
             },
             {
                 "step": 2,
-                "title": "Создайте мероприятие",
-                "description": "Используйте интуитивный конструктор мероприятий для настройки деталей, ценообразования и кастомизации.",
+                "title": "Create an event",
+                "description": "Add event details, set up tickets and prices. Publish and start receiving orders right away.",
                 "details": [
-                    "Детали и описание мероприятия",
-                    "Типы билетов и цены",
-                    "Индивидуальный брендинг"
+                    "Event details and description",
+                    "Ticket types and pricing",
+                    "One-click publishing"
                 ]
             },
             {
                 "step": 3,
-                "title": "Начните продавать билеты",
-                "description": "Запустите мероприятие и начните продавать билеты немедленно с безопасной обработкой платежей.",
+                "title": "Start selling tickets",
+                "description": "Launch your event and start selling tickets instantly with secure payment processing.",
                 "details": [
-                    "Мгновенная обработка платежей",
-                    "Множественные способы оплаты",
-                    "Автоматические подтверждения"
+                    "Instant payment processing",
+                    "Multiple payment methods",
+                    "Automatic confirmations"
                 ]
             },
             {
-                "step": 4,
-                "title": "Отслеживайте и управляйте",
-                "description": "Мониторьте продажи, управляйте участниками и получайте аналитику в реальном времени для оптимизации мероприятия.",
+                "step": 3,
+                "title": "Track and manage",
+                "description": "Monitor sales and get real-time analytics to optimize your events.",
                 "details": [
-                    "Отслеживание продаж в реальном времени",
-                    "Управление участниками",
-                    "Аналитика производительности"
+                    "Real-time sales analytics",
+                    "End-to-end audience analytics"
                 ]
             }
         ],
         "cta": {
-            "title": "Готовы создать ваше первое мероприятие?",
-            "subtitle": "Присоединяйтесь к тысячам организаторов, которые выбрали EventFlow для своих мероприятий",
-            "button": "Начать бесплатно - Кредитная карта не требуется"
+            "title": "Ready to create your first event?",
+            "subtitle": "Join the OnVibe entertainment ecosystem",
+            "button": "Apply now"
         }
     }
 }
