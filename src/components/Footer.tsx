@@ -1,122 +1,78 @@
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Mail,
-  Phone,
-  MapPin
-} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const { t } = useTranslation();
 
+  const topLinks = [
+    { key: "footer.links.refund", label: "Возврат билетов", href: "https://onvibe.me/refund" },
+    { key: "footer.links.help", label: "Помощь", href: "https://onvibe.me/help" },
+    { key: "footer.links.faq", label: "Ответы на вопросы", href: "https://onvibe.me/faq" },
+    { key: "footer.links.public", label: "Публичный договор", href: "https://onvibe.me/offer" },
+    { key: "footer.links.terms", label: "Условия использования", href: "https://onvibe.me/terms" },
+    { key: "footer.links.privacy", label: "Политика конфиденциальности", href: "https://onvibe.me/privacy" },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              {t("footer.company.name")}
-            </h3>
-            <p className="text-gray-400 leading-relaxed">
-              {t("footer.company.description")}
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
+    <footer className="bg-[#F5F7FA] text-[#0F1D2B]" >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Лого */}
+        <div className="mb-6">
+          <div className="text-2xl font-bold">
+            <img src="https://onvibe.me/onvibe-logo.svg" alt="" />
+          </div>
+        </div>
+
+        {/* Верхние ссылки */}
+        <nav className="flex flex-wrap gap-x-8 gap-y-4 mb-8">
+          {topLinks.map(({ key, label, href }) => (
+            <a
+              key={key}
+              href={href}
+              className="text-[16px] font-normal text-[#0F1D2B] hover:opacity-80"
+            >
+              {t(key, { defaultValue: label })}
+            </a>
+          ))}
+        </nav>
+
+        {/* Контакты */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div>
+            <div className="text-sm text-[#6A7A90] mb-1">
+              Email поддержки
+            </div>
+            <div className="text-[17px] font-medium">
+              support@onvibe.me
             </div>
           </div>
 
-          {/* Product Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">{t("footer.product.title")}</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.product.links.features")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.product.links.pricing")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.product.links.templates")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.product.links.integrations")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.product.links.mobileApp")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.product.links.api")}</a></li>
-            </ul>
+          <div>
+            <div className="text-sm text-[#6A7A90] mb-1">
+              Телефон поддержки
+            </div>
+            <div className="text-[17px] font-medium">
+              +7 (771) 001-32-32
+            </div>
           </div>
 
-          {/* Resources */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">{t("footer.resources.title")}</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.resources.links.helpCenter")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.resources.links.guide")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.resources.links.blog")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.resources.links.webinars")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.resources.links.cases")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t("footer.resources.links.community")}</a></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">{t("footer.contact.title")}</h4>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-400">{t("footer.contact.email")}</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-400">{t("footer.contact.phone")}</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-400">{t("footer.contact.address")}</span>
-              </div>
+          <div>
+            <div className="text-sm text-[#6A7A90] mb-1">
+              Адрес компании
+            </div>
+            <div className="text-[17px] font-medium">
+              РК, г. Алматы, Алмалинский р-н, пр. Абылай хана 58
             </div>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="py-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-              <p className="text-gray-400 text-sm">
-                {t("footer.bottom.rights")}
-              </p>
-              <div className="flex space-x-6">
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  {t("footer.bottom.privacy")}
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  {t("footer.bottom.terms")}
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  {t("footer.bottom.cookies")}
-                </a>
-              </div>
-            </div>
+        {/* Разделитель */}
+        <hr className="border-t border-[#E1E7EF] mb-6" />
 
-            <div className="flex items-center space-x-4">
-              <span className="text-gray-400 text-sm">{t("footer.bottom.madeWithLove")}</span>
-            </div>
-          </div>
+        {/* Юр. строка */}
+        <div className="text-[#6A7A90] text-sm">
+          {t("footer.company.legal", { defaultValue: 'ТОО «Axio» 050004' })}
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }

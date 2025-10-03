@@ -1,9 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function Header() {
+type HeaderProps = {
+    onOpenContact: () => void;
+};
+
+const Header: FC<HeaderProps> = ({ onOpenContact }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { t } = useTranslation();
 
@@ -23,16 +27,21 @@ export default function Header() {
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                {t("header.logo")}
+                                <img src="https://onvibe.me/onvibe-logo.svg" alt="" />
+
                             </h1>
                         </div>
                     </div>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-8">
+                        {/* <div className="ml-10 flex items-baseline space-x-8">
                             <button
-                                onClick={() => scrollToSection('features')}
+                                onClick={() => {
+                                    if (typeof window !== "undefined") {
+                                        window.location.href = "https://aigenda.app/en#why";
+                                    }
+                                }}
                                 className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
                             >
                                 {t("header.nav.features")}
@@ -61,18 +70,12 @@ export default function Header() {
                             >
                                 {t("header.nav.contacts")}
                             </a>
-                        </div>
+                        </div> */}
                     </nav>
 
                     {/* Desktop CTA Buttons */}
                     <div className="hidden md:flex items-center space-x-4">
-                        <a
-                            href="#"
-                            className="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                        >
-                            {t("header.auth.login")}
-                        </a>
-                        <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
+                        <Button onClick={onOpenContact} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
                             {t("header.auth.register")}
                         </Button>
                     </div>
@@ -142,3 +145,5 @@ export default function Header() {
         </header>
     );
 }
+
+export default Header;

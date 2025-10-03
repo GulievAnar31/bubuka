@@ -8,9 +8,14 @@ import {
     ArrowRight,
     Star,
 } from "lucide-react";
+import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function CTASection() {
+type CTASectionProps = {
+    onOpenContact: () => void;
+};
+
+const CTASection: FC<CTASectionProps> = ({ onOpenContact }) => {
     const { t } = useTranslation();
 
     return (
@@ -85,19 +90,12 @@ export default function CTASection() {
                 <div className="text-center space-y-6">
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Button
+                            onClick={onOpenContact}
                             size="lg"
                             className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
                         >
                             {t("cta.button.primary")}
                             <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
-
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-xl transition-all backdrop-blur-sm"
-                        >
-                            {t("cta.button.secondary")}
                         </Button>
                     </div>
                 </div>
@@ -105,3 +103,5 @@ export default function CTASection() {
         </section>
     );
 }
+
+export default CTASection;

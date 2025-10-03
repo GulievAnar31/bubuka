@@ -9,6 +9,7 @@ import {
     CheckCircle,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { FC } from 'react';
 
 const steps = [
     { step: 1, icon: UserPlus, color: 'blue' },
@@ -24,7 +25,11 @@ const colorClasses = {
     orange: 'bg-orange-100 text-orange-600 border-orange-200',
 };
 
-export default function HowItWorksSection() {
+type HeaderProps = {
+    onOpenContact: () => void;
+};
+
+export const HowItWorksSection: FC<HeaderProps> = ({ onOpenContact }) => {
     const { t } = useTranslation();
 
     return (
@@ -81,10 +86,10 @@ export default function HowItWorksSection() {
                                             {details?.map((detail, detailIndex) => (
                                                 <div
                                                     key={detailIndex}
-                                                    className="flex items-center justify-center space-x-2 text-sm text-gray-500"
+                                                    className="flex items-start space-x-2 text-sm text-gray-500"
                                                 >
-                                                    <CheckCircle className="w-4 h-4 text-green-500" />
-                                                    <span>{detail}</span>
+                                                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                                                    <span className="text-left">{detail}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -112,22 +117,9 @@ export default function HowItWorksSection() {
                         );
                     })}
                 </div>
-
-                <div className="text-center mt-16 space-y-6">
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                            {t('howItWorks.cta.title')}
-                        </h3>
-                        <p className="text-gray-600 mb-6">{t('howItWorks.cta.subtitle')}</p>
-                        <Button
-                            size="lg"
-                            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-                        >
-                            {t('howItWorks.cta.button')}
-                        </Button>
-                    </div>
-                </div>
             </div>
         </section>
     );
 }
+
+export default HowItWorksSection;

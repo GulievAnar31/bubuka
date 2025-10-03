@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { FC } from 'react';
 
 const organizerLogos = [
     { name: 'TechSummit', logo: '🏢' },
@@ -11,7 +12,11 @@ const organizerLogos = [
     { name: 'FoodFest', logo: '🍽️' }
 ];
 
-export default function TestimonialsSection() {
+type HeaderProps = {
+    onOpenContact: () => void;
+};
+
+const TestimonialsSection: FC<HeaderProps> = () => {
     return (
         <section id="testimonials" className="py-12 bg-gradient-to-br from-gray-50 to-blue-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,3 +49,5 @@ export default function TestimonialsSection() {
         </section>
     );
 }
+
+export default TestimonialsSection;

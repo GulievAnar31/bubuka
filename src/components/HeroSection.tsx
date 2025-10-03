@@ -1,48 +1,45 @@
 import { Button } from '@/components/ui/button';
 import { Play, Star, Users, Calendar } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type HeroImage = {
     title: string;
-    /** Градиент в формате tailwind, например: 'from-blue-500 to-purple-600' */
     gradient?: string;
-    /** Эмодзи-фолбэк, если нет изображения */
     icon?: string;
-    /** Ниже поля можно не заполнять, они нам больше не нужны визуально, но тип оставим на будущее */
     sold?: string;
     progress?: number;
     revenue?: string;
     growth?: string;
-    /** Путь к картинке из /public, напр. '/images/festival.jpg' */
     image?: string;
 };
 
-export default function HeroSection() {
+type HeroSectionProps = {
+    onOpenContact: () => void;
+};
+
+const HeroSection: FC<HeroSectionProps> = ({ onOpenContact }) => {
     const { t } = useTranslation();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    // Безопасно получаем массив слайдов из i18next
     const heroImages = useMemo<HeroImage[]>(() => {
         const raw = t('hero.carousel', { returnObjects: true }) as unknown;
         return Array.isArray(raw) ? (raw as HeroImage[]) : [];
     }, [t]);
 
-    // Фолбэк слайд на случай пустого JSON
     const fallback: HeroImage = {
         title: t('hero.card.fallbackTitle', { defaultValue: 'Мероприятие' }),
         gradient: 'from-blue-500 to-purple-600',
         icon: '🎟️',
     };
 
-    // Источник данных для слайдера — либо реальные данные, либо один фолбэк
     const slides: HeroImage[] = heroImages.length > 0 ? heroImages : [fallback];
 
     useEffect(() => {
-        if (slides.length <= 1) return; // не крутим, если один слайд
+        if (slides.length <= 1) return;
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % slides.length);
-        }, 3000);
+        }, 4000);
         return () => clearInterval(interval);
     }, [slides.length]);
 
@@ -74,6 +71,7 @@ export default function HeroSection() {
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button
+                                onClick={onOpenContact}
                                 size="lg"
                                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
                             >
@@ -81,6 +79,7 @@ export default function HeroSection() {
                             </Button>
 
                             <Button
+                                onClick={onOpenContact}
                                 variant="outline"
                                 size="lg"
                                 className="border-2 border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl transition-all"
@@ -91,58 +90,65 @@ export default function HeroSection() {
                         </div>
 
                         {/* Статистика */}
-                        <div className="flex flex-wrap gap-8 pt-8">
-                            <div className="flex items-center space-x-2">
-                                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                                    <Users className="w-6 h-6 text-blue-600" />
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-gray-900">
-                                        {t('hero.stats.tickets.number')}
-                                    </div>
-                                    <div className="text-sm text-gray-600">
-                                        {t('hero.stats.tickets.label')}
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div className="flex items-center space-x-2">
-                                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                                    <Calendar className="w-6 h-6 text-purple-600" />
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-gray-900">
-                                        {t('hero.stats.events.number')}
-                                    </div>
-                                    <div className="text-sm text-gray-600">
-                                        {t('hero.stats.events.label')}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    {/* Правая колонка — ТОЛЬКО изображение/градиент на всю карточку */}
+                    {/* Правая колонка — карточка со слайдером */}
                     <div className="relative">
                         <div className="relative z-10">
-                            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-all duration-500">
+                            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-all duration-500 w-full max-w-lg">
+                                {/* Картинка или фон */}
                                 {currentImage.image ? (
                                     <img
                                         src={currentImage.image}
                                         alt={currentImage.title}
-                                        className="w-full h-64 md:h-96 object-cover"
+                                        className="w-full h-48 md:h-56 object-cover"
                                         loading="eager"
                                     />
                                 ) : (
                                     <div
-                                        className={`w-full h-64 md:h-96 bg-gradient-to-r ${currentImage.gradient ?? 'from-blue-500 to-purple-600'
+                                        className={`w-full h-48 md:h-56 bg-gradient-to-r ${currentImage.gradient ?? 'from-blue-500 to-purple-600'
                                             } flex items-center justify-center`}
                                     >
-                                        <span className="text-5xl">
-                                            {currentImage.icon ?? '🎟️'}
-                                        </span>
+                                        <span className="text-5xl">{currentImage.icon ?? '🎟️'}</span>
                                     </div>
                                 )}
+
+                                {/* Контент карточки */}
+                                <div className="p-6">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center justify-between">
+                                        {currentImage.title}
+                                        <span className="text-sm px-2 py-1 bg-green-100 text-green-700 rounded-lg">
+                                            {t('hero.card.live', { defaultValue: 'В эфире' })}
+                                        </span>
+                                    </h3>
+
+                                    {/* Продажи */}
+                                    <p className="text-sm text-gray-600 mb-1">
+                                        {t('hero.card.sold', { defaultValue: 'Билетов продано' })}
+                                    </p>
+                                    <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                        <span>{currentImage.sold}</span>
+                                    </div>
+
+                                    {/* Прогресс-бар */}
+                                    <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
+                                            style={{ width: `${currentImage.progress ?? 0}%` }}
+                                        />
+                                    </div>
+
+                                    {/* Доход и рост */}
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-lg font-bold text-gray-900">
+                                            {currentImage.revenue}
+                                        </span>
+                                        <span className="text-sm text-green-600 font-medium">
+                                            {currentImage.growth}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -163,4 +169,6 @@ export default function HeroSection() {
             </div>
         </section>
     );
-}
+};
+
+export default HeroSection;
